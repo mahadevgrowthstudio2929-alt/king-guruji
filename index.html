@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="description" content="JACKPOT GUTU JI - Cricket Analysis & Match Reports">
+<title>JACKPOT GUTU JI | Cricket Analysis</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+
+html,body{
+  width:100%;
+  min-height:100%;
+  background:#050607;
+}
+
+body{
+  font-family:Inter,sans-serif;
+  color:#fff;
+  overflow:hidden;
+}
+
+/* BACKGROUND GLOW */
+
+body:before{
+  content:"";
+  position:fixed;
+  width:280px;
+  height:280px;
+  top:-130px;
+  left:-90px;
+  background:rgba(255,190,45,.13);
+  filter:blur(85px);
+  border-radius:50%;
+  pointer-events:none;
+}
+
+body:after{
+  content:"";
+  position:fixed;
+  width:260px;
+  height:260px;
+  bottom:-130px;
+  right:-90px;
+  background:rgba(255,75,30,.10);
+  filter:blur(90px);
+  border-radius:50%;
+  pointer-events:none;
+}
+
+/* MAIN */
+
+.page{
+  width:100%;
+  max-width:470px;
+  height:100vh;
+  min-height:600px;
+  margin:auto;
+  padding:13px 14px;
+  display:flex;
+  flex-direction:column;
+  position:relative;
+}
+
+/* TOP BAR */
+
+.topbar{
+  height:29px;
+  border:1px solid rgba(255,190,50,.16);
+  border-radius:50px;
+  background:rgba(255,255,255,.035);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  color:#a9a9a9;
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:1.3px;
+  text-transform:uppercase;
+  backdrop-filter:blur(12px);
+}
+
+.live{
+  width:6px;
+  height:6px;
+  background:#ffbf3c;
+  border-radius:50%;
+  box-shadow:0 0 12px #ffb51b;
+  animation:blink 1.4s infinite;
+}
+
+@keyframes blink{
+  0%,100%{opacity:1}
+  50%{opacity:.35}
+}
+
+/* BRAND */
+
+.brand{
+  text-align:center;
+  margin-top:13px;
+}
+
+.logo-box{
+  width:75px;
+  height:75px;
+  padding:3px;
+  margin:auto;
+  border-radius:23px;
+  background:linear-gradient(135deg,#fff0a0,#ffbd32,#d76c13);
+  box-shadow:
+    0 0 0 1px rgba(255,205,75,.15),
+    0 0 30px rgba(255,175,35,.20);
+}
+
+.logo{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  border-radius:20px;
+  background:#090909;
+}
+
+.brand h1{
+  margin-top:9px;
+  font-family:Orbitron,sans-serif;
+  font-size:22px;
+  line-height:1.1;
+  font-weight:800;
+  letter-spacing:1px;
+  background:linear-gradient(90deg,#fff,#ffd968,#fff1b0);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.brand p{
+  margin-top:5px;
+  font-family:Rajdhani,sans-serif;
+  color:#8f8f8f;
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+/* LIVE STRIP */
+
+.live-strip{
+  margin-top:12px;
+  height:30px;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:9px;
+  background:rgba(255,255,255,.025);
+}
+
+.strip-title{
+  height:100%;
+  padding:0 9px;
+  display:flex;
+  align-items:center;
+  background:rgba(255,184,38,.10);
+  border-right:1px solid rgba(255,184,38,.13);
+  color:#ffc94f;
+  font-family:Rajdhani,sans-serif;
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:1px;
+}
+
+.strip-text{
+  white-space:nowrap;
+  padding-left:13px;
+  font-family:Rajdhani,sans-serif;
+  font-size:9px;
+  color:#898989;
+  animation:slide 13s linear infinite;
+}
+
+.strip-text b{
+  color:#e8c15b;
+}
+
+@keyframes slide{
+  from{transform:translateX(10%)}
+  to{transform:translateX(-70%)}
+}
+
+/* MAIN CARD */
+
+.card{
+  margin-top:11px;
+  padding:16px 15px 14px;
+  border-radius:19px;
+  border:1px solid rgba(255,194,58,.15);
+  background:
+    linear-gradient(145deg,rgba(35,29,15,.75),rgba(10,10,9,.90));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.05),
+    0 15px 45px rgba(0,0,0,.28);
+  position:relative;
+  overflow:hidden;
+}
+
+.card:before{
+  content:"";
+  position:absolute;
+  width:170px;
+  height:170px;
+  right:-95px;
+  top:-95px;
+  border-radius:50%;
+  background:rgba(255,184,35,.13);
+  filter:blur(35px);
+}
+
+.card-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  color:#ffc84b;
+  font-family:Rajdhani,sans-serif;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+}
+
+.card-tag:before{
+  content:"";
+  width:16px;
+  height:1px;
+  background:#ffc84b;
+  box-shadow:0 0 8px #ffc84b;
+}
+
+.card h2{
+  margin-top:7px;
+  max-width:350px;
+  font-size:21px;
+  line-height:1.18;
+  letter-spacing:-.4px;
+  font-weight:800;
+}
+
+.card h2 span{
+  color:#ffc84b;
+}
+
+.desc{
+  margin-top:7px;
+  color:#8d8b84;
+  font-size:10px;
+  line-height:1.5;
+}
+
+/* MINI DATA */
+
+.data{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:7px;
+  margin-top:11px;
+}
+
+.data-box{
+  padding:9px 5px;
+  text-align:center;
+  border-radius:11px;
+  background:rgba(255,255,255,.027);
+  border:1px solid rgba(255,255,255,.06);
+}
+
+.data-box strong{
+  display:block;
+  font-family:Orbitron,sans-serif;
+  font-size:11px;
+  color:#eee;
+}
+
+.data-box small{
+  display:block;
+  margin-top:3px;
+  color:#77746c;
+  font-family:Rajdhani,sans-serif;
+  font-size:7px;
+  letter-spacing:.8px;
+  text-transform:uppercase;
+}
+
+/* FEATURE ROW */
+
+.features{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:7px;
+  margin-top:8px;
+}
+
+.feature{
+  min-height:42px;
+  padding:8px 9px;
+  border-radius:11px;
+  background:rgba(255,255,255,.025);
+  border:1px solid rgba(255,255,255,.055);
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.feature-icon{
+  width:27px;
+  height:27px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:8px;
+  background:rgba(255,190,48,.08);
+  color:#ffc84b;
+  font-size:13px;
+}
+
+.feature-text b{
+  display:block;
+  font-size:8px;
+  color:#ddd;
+}
+
+.feature-text small{
+  display:block;
+  margin-top:2px;
+  color:#706f69;
+  font-size:7px;
+}
+
+/* CTA */
+
+.cta-wrap{
+  margin-top:10px;
+}
+
+.cta{
+  width:100%;
+  min-height:53px;
+  border:0;
+  border-radius:14px;
+  background:linear-gradient(105deg,#f0a91c,#ffcc55,#e79617);
+  color:#171108;
+  font-family:Inter,sans-serif;
+  cursor:pointer;
+  position:relative;
+  overflow:hidden;
+  box-shadow:
+    0 9px 28px rgba(239,169,27,.20),
+    inset 0 1px 0 rgba(255,255,255,.55);
+  transition:transform .15s ease;
+}
+
+.cta:active{
+  transform:scale(.98);
+}
+
+.cta:after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100px;
+  width:55px;
+  height:100%;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.55),
+    transparent
+  );
+  transform:skewX(-20deg);
+  animation:shine 3s infinite;
+}
+
+@keyframes shine{
+  0%,55%{left:-100px}
+  75%,100%{left:110%}
+}
+
+.cta-main{
+  display:block;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.2px;
+}
+
+.cta-sub{
+  display:block;
+  margin-top:3px;
+  font-size:7px;
+  font-weight:700;
+  letter-spacing:1px;
+  opacity:.65;
+}
+
+/* DISCLAIMER */
+
+.note{
+  margin-top:6px;
+  text-align:center;
+  color:#595850;
+  font-size:7px;
+  line-height:1.35;
+}
+
+/* FOOTER */
+
+.footer{
+  margin-top:auto;
+  padding-top:8px;
+  text-align:center;
+  color:#44433e;
+  font-family:Rajdhani,sans-serif;
+  font-size:7px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+/* SMALL HEIGHT PHONES */
+
+@media(max-height:680px){
+
+  .page{
+    padding-top:9px;
+  }
+
+  .brand{
+    margin-top:8px;
+  }
+
+  .logo-box{
+    width:62px;
+    height:62px;
+  }
+
+  .brand h1{
+    font-size:19px;
+    margin-top:6px;
+  }
+
+  .brand p{
+    font-size:8px;
+  }
+
+  .live-strip{
+    margin-top:8px;
+  }
+
+  .card{
+    margin-top:8px;
+    padding:13px 13px 11px;
+  }
+
+  .card h2{
+    font-size:18px;
+  }
+
+  .desc{
+    font-size:9px;
+    margin-top:5px;
+  }
+
+  .data{
+    margin-top:8px;
+  }
+
+  .features{
+    margin-top:6px;
+  }
+
+  .cta-wrap{
+    margin-top:7px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<main class="page">
+
+  <div class="topbar">
+    <span class="live"></span>
+    Cricket Analysis • Match Reports • Active Desk
+  </div>
+
+  <section class="brand">
+
+    <div class="logo-box">
+      <img src="logo.png" class="logo" alt="JACKPOT GUTU JI">
+    </div>
+
+    <h1>JACKPOT GUTU JI</h1>
+
+    <p>Cricket Analysis &amp; Match Reports</p>
+
+  </section>
+
+  <div class="live-strip">
+    <div class="strip-title">LIVE DESK</div>
+    <div class="strip-text">
+      MATCH WATCH &nbsp; • &nbsp;
+      <b>● ANALYSIS ACTIVE</b>
+      &nbsp; • &nbsp;
+      CRICKET UPDATES
+      &nbsp; • &nbsp;
+      <b>● REPORTS READY</b>
+    </div>
+  </div>
+
+  <section class="card">
+
+    <div class="card-tag">Premium Cricket Desk</div>
+
+    <h2>
+      Stay Ahead With
+      <span>Focused Cricket Insights.</span>
+    </h2>
+
+    <p class="desc">
+      Match analysis, reports and key game insights — presented in one focused cricket community.
+    </p>
+
+    <div class="data">
+
+      <div class="data-box">
+        <strong>LIVE</strong>
+        <small>Match Watch</small>
+      </div>
+
+      <div class="data-box">
+        <strong>PRO</strong>
+        <small>Analysis Desk</small>
+      </div>
+
+      <div class="data-box">
+        <strong>FAST</strong>
+        <small>Reports</small>
+      </div>
+
+    </div>
+
+    <div class="features">
+
+      <div class="feature">
+        <div class="feature-icon">🏏</div>
+        <div class="feature-text">
+          <b>Match Analysis</b>
+          <small>Focused game insights</small>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">◈</div>
+        <div class="feature-text">
+          <b>Match Reports</b>
+          <small>Important updates</small>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="cta-wrap">
+
+      <button
+        class="cta"
+        type="button"
+        onclick="window.location.href='https://t.me/+okbRIYU5dFU5MmE1';"
+      >
+        <span class="cta-main">GET ACCESS TO JACKPOT GUTU JI</span>
+        <span class="cta-sub">JOIN THE CRICKET COMMUNITY →</span>
+      </button>
+
+      <div class="note">
+        Cricket analysis &amp; reports are provided for informational purposes only.
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer class="footer">
+    JACKPOT GUTU JI • CRICKET ANALYSIS COMMUNITY
+  </footer>
+
+</main>
+
+</body>
+</html>
